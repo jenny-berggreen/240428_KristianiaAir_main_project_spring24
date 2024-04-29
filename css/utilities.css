@@ -1,0 +1,66 @@
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.flex {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* Text colors and weigth and more */
+.text-center {
+	text-align: center;
+}
+
+.text--bold {
+	font-family: 'Inter-Bold';
+}
+
+.text--semibold {
+	font-family: 'Inter-SemiBold';
+}
+
+/* Text sizes */
+.s {
+	font-size: 1rem;
+}
+
+.m {
+	font-size: 1.5rem;
+}
+
+.l {
+	font-size: 2rem;
+}
+
+.xl {
+	font-size: 3rem;
+}
+
+.xxl {
+	font-size: 3rem;
+}
