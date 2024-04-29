@@ -1,12 +1,12 @@
 body {
 	flex-direction: column;
-	padding: var(--spacing-medium);
-	background-color: var(--color-tertiary);
+	background-color: var(--color-background);
 }
 
 button {
 	padding: var(--spacing-small) var(--spacing-medium);
 }
+
 
 
 
