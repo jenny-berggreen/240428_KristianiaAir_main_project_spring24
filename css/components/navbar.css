@@ -40,8 +40,17 @@ nav {
 	height: 2rem;
 }
 
+.page-link a,
+.login-link a {
+	color: var(--color-foreground);
+}
+
 .page-link:hover,
 .login-link:hover {
 	cursor: pointer;
+	border-bottom: solid 2px var(--color-foreground);
+}
+
+.page-link--active {
 	border-bottom: solid 2px var(--color-foreground);
 }
