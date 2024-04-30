@@ -1,0 +1,27 @@
+footer {
+	height: 20rem;
+	padding: 2rem;
+	background-color: var(--color-primary);
+	color: var(--color-foreground);
+}
+
+footer .grid {
+	column-gap: 10rem;
+}
+
+.footer-list {
+	gap: 1.2rem;
+}
+
+.footer-list li a {
+	color: var(--color-foreground);
+}
+
+.footer-social-link {
+	
+}
+
+.footer-rights-span {
+	grid-column: span 2;
+	text-align: center;
+}
