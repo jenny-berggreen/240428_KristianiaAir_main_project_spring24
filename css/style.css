@@ -30,8 +30,45 @@ button {
 	color: var(--color-foreground);
 }
 
-.header-button-container button {
+.hero-button {
 	width: 15rem;
+	background: none;
+	border: solid 2px var(--color-secondary);
+	color: var(--color-secondary);
+	padding: 0.7rem var(--spacing-medium);
+}
+
+.hero-button:hover {
+	background-color: var(--color-secondary);
+	color: var(--color-foreground);
+}
+
+.buttons-container {
+	height: 13rem;
+	justify-content: space-between;
+	padding: 0 18rem;
+}
+
+.buttons-container button {
+	display: flex;
+	align-items: center;
+	padding-left: var(--spacing-largest);
+	background-color: var(--color-secondary);
+	color: var(--color-foreground);
+}
+
+.buttons-container button:hover {
+	background-color: #760db7;
+}
+
+.buttons-container button::after {
+	content: '';
+	display: inline-block;
+	background: url('../assets/icons/arrow-icon.png') no-repeat bottom;
+	background-size: contain;
+	width: 1rem;
+	height: 1rem;
+	margin-left: var(--spacing-large);
 }
 
 
