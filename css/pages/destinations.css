@@ -15,3 +15,17 @@ main {
 .filter {
 	gap: var(--spacing-x-small);
 }
+
+.destinations-section {
+	width: 100%;
+}
+
+.destinations-section .grid {
+	width: 100%;
+	gap: var(--spacing-larger);
+	padding: var(--spacing-medium);
+}
+
+.grid-cell {
+	padding: var(--spacing-larger);
+}
