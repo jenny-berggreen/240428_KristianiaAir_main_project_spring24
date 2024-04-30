@@ -7,6 +7,32 @@ button {
 	padding: var(--spacing-small) var(--spacing-medium);
 }
 
+/* INDEX */
+.hero {
+	height: 40rem;
+	background-image: url(../assets/images/home_hero.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 0% 20%;
+}
+
+.header-button-container {
+	margin-top: -8rem;
+	width: 100%;
+	gap: 2rem;
+	padding: 0 var(--spacing-larger);
+}
+
+.header-button-container h1 {
+	width: 50%;
+	line-height: 4rem;
+	letter-spacing: 0.5rem;
+	color: var(--color-foreground);
+}
+
+.header-button-container button {
+	width: 15rem;
+}
 
 
 
