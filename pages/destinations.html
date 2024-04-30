@@ -43,8 +43,23 @@
 
 	<!-- MAIN -->
 	<main class="container">
-		<div class="flex flex-center flex-column">
-			<h2 class="xl ibm-plex-mono-semibold">Explore our destinations</h1>
+		<div class="main-div flex flex-center flex-column">
+			<h2 class="xl ibm-plex-mono-semibold">Explore our destinations</h2>
+			<section class="sort-filter-section flex flex-row">
+				<div class="sort flex flex-center flex-row">
+					<label for="sort">Sort:</label>
+					<select name="sort" class="sort-select">
+						<option value="A-Z">Alphabetically: A-Z</option>
+					</select>
+				</div>
+				<div class="filter flex flex-center flex-row">
+					<label for="filter">Filter:</label>
+					<select name="filter" class="filter-select">
+						<option value="beach">Beach destinations</option>
+					</select>
+				</div>
+			</section>
+
 		</div>
 	</main>
 

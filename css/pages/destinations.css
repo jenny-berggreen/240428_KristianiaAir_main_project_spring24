@@ -1,3 +1,17 @@
 main {
 	padding: var(--spacing-largest) 0;
 }
+
+.main-div {
+	gap: var(--spacing-larger);
+}
+
+.sort-filter-section {
+	width: 100%;
+	gap: var(--spacing-larger);
+}
+
+.sort,
+.filter {
+	gap: var(--spacing-x-small);
+}
