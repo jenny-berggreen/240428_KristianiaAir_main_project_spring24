@@ -40,12 +40,14 @@ input {
 	width: 26rem;
 }
 
-.open-signup-button {
+.open-signup-button,
+.open-login-button {
 	padding: 0;
 	background: none;
 }
 
-.open-signup-button:hover {
+.open-signup-button:hover,
+.open-login-button:hover {
 	font-weight: 800;
 	color: var(--color-secondary);
 }
