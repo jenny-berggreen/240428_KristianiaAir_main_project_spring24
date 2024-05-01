@@ -41,7 +41,90 @@
 		</div>
 	</nav>
 
-	<h1>Booking</h1>
+	<!-- MAIN -->
+	<main>
+		<section class="hero-section ">
+			<div class="hero flex flex-center">
+				<div class="container">
+					<!-- grey box -->
+					<form class="booking-form-container flex flex-center flex-column">
+						<h2 class="xl ibm-plex-mono-semibold">Book a trip</h2>
+						<div class="flex flex-center flex-row">
+							<!-- inputs -->
+							<section class="input-section flex flex-center flex-column">
+								<div class="country-city flex flex-row">
+									<div class="input-group flex flex-column">
+										<label for="country">Country:</label>
+										<div class="search-container">
+											<input type="text" name="country" placeholder="Type to search">
+											<div class="dropdown-list"></div>
+										</div>
+									</div>
+									<div class="input-group flex flex-column">
+										<label for="city">City:</label>
+										<div class="search-container">
+											<input type="text" name="city" placeholder="Type to search">
+											<div class="dropdown-list"></div>
+										</div>
+									</div>
+								</div>
+								<div class="departure-return flex flex-row">
+									<div class="input-group flex flex-column">
+										<label for="departure">Departure:</label>
+										<input type="date">
+									</div>
+									<div class="input-group flex flex-column">
+										<label for="departure">Departure:</label>
+										<input type="date">
+									</div>
+								</div>
+								<div class="travelers flex flex-row">
+									<div class="input-group flex flex-column">
+										<label for="travelers">Travelers:</label>
+										<select name="travelers"></select>
+									</div>
+								</div>
+							</section>
+							<!-- summary -->
+							<section class="summary-section flex flex-column">
+								<span class="summary-header">Summary</span>
+								<div class="summary-details-container flex flex-column">
+									<div class="details-group flex flex-row">
+										<span class="details-header">Country:</span>
+										<span class="details-value">Test</span>
+									</div>
+									<div class="details-group flex flex-row">
+										<span class="details-header">City:</span>
+										<span class="details-value">Test</span>
+									</div>
+									<div class="details-group flex flex-row">
+										<span class="details-header">Departure:</span>
+										<span class="details-value">Test</span>
+									</div>
+									<div class="details-group flex flex-row">
+										<span class="details-header">Return:</span>
+										<span class="details-value">Test</span>
+									</div>
+									<div class="details-group flex flex-row">
+										<span class="details-header">Travelers:</span>
+										<span class="details-value">Test</span>
+									</div>
+									<div class="details-group details-group--total flex flex-row">
+										<span class="details-header">Total:</span>
+										<span class="details-value">Test</span>
+									</div>
+								</div>
+							</section>
+						</div>
+						<!-- button -->
+						<div class="button-container flex flex-center">
+							<button class="book-button">Book trip</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
 
 	<!-- FOOTER -->
 	<footer class="flex flex-center">
