@@ -1,7 +1,85 @@
-.hero {
+.hero-section {
+	width: 100vw;
 	height: 92vh;
 	background-image: url(../../assets/images/booking_hero.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: bottom;
+}
+
+.container,
+.center-div {
+	height: 100%;
+}
+
+.booking-form-container {
+	width: 100%;
+	padding: var(--spacing-large) var(--spacing-largest);
+	gap: var(--spacing-largest);
+	background-color: #4141418d;
+	color: var(--color-foreground);
+}
+
+.row-div {
+	width: 100%;
+	gap: var(--spacing-largest);
+}
+
+.input-section {
+	align-items: flex-start;
+	gap: var(--spacing-medium);
+	flex-basis: 60%;
+}
+
+.country-city,
+.departure-return,
+.travelers,
+.input-group,
+.summary-section div,
+.search-container,
+input {
+	width: 100%;
+}
+
+.country-city,
+.departure-return,
+.travelers {
+	gap: var(--spacing-medium);
+}
+
+.input-group {
+	gap: var(--spacing-x-small);
+}
+
+.summary-section {
+	gap: var(--spacing-medium);
+	padding-left: var(--spacing-large);
+	flex-basis: 30%;
+	border-left: solid 1px var(--color-foreground);
+}
+
+.summary-details-container {
+	gap: var(--spacing-small);
+}
+
+.details-group {
+	justify-content: space-between;
+}
+
+.details-group--total {
+	margin-top: var(--spacing-small);
+}
+
+.details-header,
+.details-value {
+	flex-basis: 50%;
+}
+
+.book-button {
+	width: 16rem;
+	background-color: var(--color-primary);
+	color: var(--color-foreground);
+}
+.book-button:hover {
+	background-color: #c61535;
 }

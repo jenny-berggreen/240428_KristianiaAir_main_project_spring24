@@ -7,5 +7,15 @@ button {
 	padding: var(--spacing-small) var(--spacing-medium);
 }
 
+input,
+select {
+	padding: var(--spacing-x-small) var(--spacing-small);
+}
+
+input[type='date'],
+select {
+	cursor: pointer;
+}
+
 
 
