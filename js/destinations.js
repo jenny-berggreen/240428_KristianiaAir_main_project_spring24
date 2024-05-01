@@ -1,3 +1,8 @@
+// GET ELEMENTS FROM THE DOM
+const sort = document.querySelector('.sort-select');
+const filter = document.querySelector('.filter-select');
+const destinationsGrid = document.querySelector('.destinations-section .grid');
+
 // DESTINATIONS ARRAY
 const destinations = [
 	{
@@ -66,9 +71,6 @@ const destinations = [
 
 ]
 
-// GET ELEMENTS FROM THE DOM
-const destinationsGrid = document.querySelector('.destinations-section .grid');
-
 // FUNCTION TO CREATE DESTINATION CARD
 function createDestinationCard(destination) {
     const card = document.createElement('div');
@@ -105,6 +107,53 @@ function renderDestinations(destinations) {
         destinationsGrid.appendChild(card);
     });
 }
+
+// FUNCTION TO SORT DESTINATIONS
+function sortDestinations(destinations, sortValue) {
+    if (sortValue === 'A-Z') {
+        return destinations.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortValue === 'Z-A') {
+        return destinations.sort((a, b) => b.name.localeCompare(a.name));
+    } else if (sortValue === 'low-high') {
+        return destinations.sort((a, b) => parseFloat(a.price.split(' ')[1]) - parseFloat(b.price.split(' ')[1]));
+    } else if (sortValue === 'high-low') {
+        return destinations.sort((a, b) => parseFloat(b.price.split(' ')[1]) - parseFloat(a.price.split(' ')[1]));
+    }
+}
+
+// FUNCTION TO FILTER DESTINATIONS
+function filterDestinations(destinations, filterValue) {
+    if (filterValue === 'all') {
+        return destinations;
+    } else if (filterValue === 'popular') {
+        return destinations.filter(destination => destination.popular);
+    } else if (filterValue === 'beach') {
+        return destinations.filter(destination => destination.filter === 'beach');
+    } else if (filterValue === 'city') {
+        return destinations.filter(destination => destination.filter === 'city');
+    } else {
+        return destinations; // No filter applied
+    }
+}
+
+// FUNCTION TO DISPLAY SORTED AND FILTERED DESTINATIONS
+function updateDisplayedDestinations() {
+    const sortValue = sort.value;
+    const filterValue = filter.value;
+
+    let sortedDestinations = sortDestinations(destinations, sortValue);
+    let filteredDestinations = filterDestinations(sortedDestinations, filterValue);
+
+    // Clear existing destination cards
+    destinationsGrid.innerHTML = '';
+
+    // Render filtered and sorted destinations
+    renderDestinations(filteredDestinations);
+}
+
+// ADD EVENT LISTENERS
+sort.addEventListener('change', updateDisplayedDestinations);
+filter.addEventListener('change', updateDisplayedDestinations);
 
 // RENDER DESTINATIONS
 renderDestinations(destinations);
