@@ -1,0 +1,7 @@
+.hero {
+	height: 92vh;
+	background-image: url(../../assets/images/booking_hero.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
