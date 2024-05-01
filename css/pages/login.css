@@ -11,6 +11,14 @@
 	padding: 0 var(--spacing-small);
 }
 
+.form-container--login {
+	display: flex;
+}
+
+.form-container--signup {
+	display: none;
+}
+
 .form-container {
 	width: 100%;
 	padding: var(--spacing-large) var(--spacing-largest);

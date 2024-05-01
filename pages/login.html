@@ -46,7 +46,6 @@
 		<section class="login-section">
 			<div class="container">
 				<div class="center-div flex flex-center">
-					
 					<!-- log in form -->
 					<form class="form-container form-container--login flex flex-center flex-column">
 						<h2 class="xl ibm-plex-mono-semibold">Log in</h2>
@@ -72,10 +71,37 @@
 						<div class="button-container flex flex-center">
 							<button class="login-signup-button login-button text--semibold">Log in</button>
 						</div>
+					</form>
+
+					<!-- sign up form -->
+					<form class="form-container form-container--signup flex flex-center flex-column">
+						<h2 class="xl ibm-plex-mono-semibold">Sign up</h2>
+						<!-- inputs -->
+						<section class="input-section flex flex-column">
+							<div class="input-group flex flex-column">
+								<label for="e-mail">E-mail:</label>
+								<input type="email" name="e-mail" placeholder="Enter e-mail">
+							</div>
+							<div class="input-group flex flex-column">
+								<label for="password">Password:</label>
+								<input type="password" name="password" placeholder="Enter password">
+							</div>
+
+							<!-- open sign up form -->
+							<span class="signup-link-container">
+								Already have an accout?
+								<button class="open-signup-button"><u>Log in</u></button>
+							</span>
+						</section>
+
+						<!-- button -->
+						<div class="button-container flex flex-center">
+							<button class="login-signup-button login-button text--semibold">Sign up</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</section>
-		
 	</main>
 
 	<!-- FOOTER -->
