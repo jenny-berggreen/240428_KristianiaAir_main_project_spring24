@@ -54,9 +54,9 @@ const displayFilteredCountries = (countries) => {
         // display dropdown
         dropdown.style.display = filteredCountries.length > 0 ? 'block' : 'none';
     });
-
-	// hide dropdown at click outside of input
-	searchInput.addEventListener('blur', function() {
-		dropdown.style.display = 'none';
-	})
 };
+
+// hide dropdown at click outside of input
+document.addEventListener('click', function() {
+	dropdown.style.display = 'none';
+});
