@@ -28,3 +28,20 @@ dropdown.addEventListener('click', function(event) {
         countryDetails.textContent = clickedCountry;
     }
 });
+
+cityInput.addEventListener('blur', function() {
+	cityDetails.textContent = this.value;
+})
+
+departureInput.addEventListener('change', function() {
+	departureDetails.textContent = this.value;
+})
+
+returnInput.addEventListener('change', function() {
+	returnDetails.textContent = this.value;
+})
+
+travelersDetails.textContent = travelersInput.value;
+travelersInput.addEventListener('change', function() {
+	travelersDetails.textContent = this.value;
+})
