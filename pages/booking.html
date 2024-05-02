@@ -63,7 +63,7 @@
 									<div class="input-group flex flex-column">
 										<label for="city">City:</label>
 										<div class="search-container">
-											<input type="text" name="city" placeholder="Type to search">
+											<input type="text" name="city" class="city-input" placeholder="Type to search">
 											<div class="dropdown-list"></div>
 										</div>
 									</div>
@@ -71,17 +71,17 @@
 								<div class="departure-return flex flex-row">
 									<div class="input-group flex flex-column">
 										<label for="departure">Departure:</label>
-										<input type="date">
+										<input type="date" class="departure-input">
 									</div>
 									<div class="input-group flex flex-column">
 										<label for="departure">Departure:</label>
-										<input type="date">
+										<input type="date" class="return-input">
 									</div>
 								</div>
 								<div class="travelers flex flex-row">
 									<div class="input-group flex flex-column">
 										<label for="travelers">Travelers:</label>
-										<select name="travelers"></select>
+										<select name="travelers" class="travelers-input"></select>
 									</div>
 									<div class="input-group"></div>
 								</div>
@@ -153,5 +153,6 @@
 	</footer>
 	
 	<script src="../js/fetch-countries-cities.js"></script>
+	<script src="../js/booking.js"></script>
 </body>
 </html>
