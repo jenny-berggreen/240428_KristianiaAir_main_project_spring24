@@ -25,6 +25,7 @@
 	gap: var(--spacing-largest);
 }
 
+/* INPUT SECTION */
 .input-section {
 	align-items: flex-start;
 	gap: var(--spacing-medium);
@@ -51,6 +52,31 @@ input {
 	gap: var(--spacing-x-small);
 }
 
+.search-container--country {
+	position: relative;
+}
+
+.dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: var(--color-foreground);
+}
+
+.dropdown-item {
+	color: black;
+    padding: var(--spacing-x-small);
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* SUMMARY SECTION */
 .summary-section {
 	gap: var(--spacing-medium);
 	padding-left: var(--spacing-large);
