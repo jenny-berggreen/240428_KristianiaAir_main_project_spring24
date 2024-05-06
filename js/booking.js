@@ -1,4 +1,6 @@
 // GET ELEMENTS FROM THE DOM
+const searchInput = document.querySelector('.search-input');
+const dropdown = document.querySelector('.dropdown-list');
 const cityInput = document.querySelector('.city-input');
 const departureInput = document.querySelector('.departure-input');
 const returnInput = document.querySelector('.return-input');
@@ -62,8 +64,19 @@ const updateTotal = () => {
 };
 
 
-// DISPLAY DETAILS IN SUMMARY
+// EVENT LISTENERS
 // country
+searchInput.addEventListener('input', async () => {
+    removeErrorMessage(searchInput);
+
+    if(!searchInput.value) {
+        countryDetails.textContent = '';
+        updateTotal();
+    } else {
+        await fetchAndCheckCountries(searchInput.value);
+    }
+});
+
 dropdown.addEventListener('click', function(e) {
     if (e.target.classList.contains('dropdown-item')) {
         const clickedCountry = e.target.textContent;
@@ -73,13 +86,6 @@ dropdown.addEventListener('click', function(e) {
 		removeErrorMessage(searchInput);
     }
 });
-
-searchInput.addEventListener('change', function() {
-	if(!searchInput.value) {
-		countryDetails.textContent = '';
-		updateTotal();
-	}
-})
 
 // city
 cityInput.addEventListener('blur', function() {
@@ -119,8 +125,9 @@ function removeErrorMessage(input) {
     }
 }
 
-bookButton.addEventListener('click', (e) => {
+bookButton.addEventListener('click', async (e) => {
 	e.preventDefault();
+	console.log(searchInput.value);
 
 	// ---------------------- FORM VALIDATION ----------------------
 	let valid = false;
@@ -150,14 +157,26 @@ bookButton.addEventListener('click', (e) => {
 						requiredSpan.style.color = 'red';
 						label.append(requiredSpan); // append the span next to the label
 
-					}
-				})
-			}
-
+					};
+				});
+			};
 		});
+
+		// check if input value is valid country name
+		if(searchInput.value) {
+			await fetchAndCheckCountries(searchInput.value);
+			console.log('here2');
+		}
 	} else {
-		valid = true;
-	}
+		// check if input value is valid country name
+		await fetchAndCheckCountries(searchInput.value);
+
+		// check if there are noe error messages
+		const errorMessageSpans = document.querySelectorAll('.required-span');
+		if (errorMessageSpans.length === 0) {
+			valid = true;
+		}
+	};
 	
 	// ---------------------- END OF FORM VALIDATION ----------------------
 
