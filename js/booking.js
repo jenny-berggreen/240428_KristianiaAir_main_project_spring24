@@ -1,10 +1,8 @@
 // GET ELEMENTS FROM THE DOM
-const countryInput = document.querySelector('.search-input');
 const cityInput = document.querySelector('.city-input');
 const departureInput = document.querySelector('.departure-input');
 const returnInput = document.querySelector('.return-input');
 const travelersInput = document.querySelector('.travelers-input');
-const dropdownItems = document.querySelectorAll('.dropdown-item');
 
 const countryLabel = document.querySelector('label[for="country"]');
 const cityLabel = document.querySelector('label[for="city"]');
@@ -21,6 +19,7 @@ const totalDetails = document.querySelector('.details-value--total');
 
 const bookButton = document.querySelector('.book-button');
 
+
 // INSERT INTO SELECT
 for(let i = 0; i <= 15; i++) {
 	let option = document.createElement('option');
@@ -28,19 +27,22 @@ for(let i = 0; i <= 15; i++) {
 	travelersInput.append(option);
 }
 
-// FUNCTION TO UPDATE AND DISPLAY TOTAL VALUE
+// SET AND DISPLAY TOTAL INITIAL VALUE
 let total = 0;
+totalDetails.textContent = `kr ${total}`;
 
-
+// FUNCTION TO UPDATE AND DISPLAY TOTAL VALUE
 const updateTotal = () => {
     total = 0;
 
     if (countryDetails.textContent !== '') {
         total += 500;
+		console.log('country ' + total);
     }
 
     if (cityDetails.textContent !== '') {
         total += 100;
+		console.log('city ' + total);
     }
 
     if (departureDetails.textContent !== '' && returnDetails.textContent !== '') {
@@ -50,30 +52,37 @@ const updateTotal = () => {
         total += travelTime * 100;
     }
 
-    if (travelersDetails.textContent !== '') {
+    if (travelersDetails.textContent > 0) {
         const numTravelers = parseInt(travelersInput.value);
         total *= numTravelers;
     }
 
     // Update total details
-    totalDetails.textContent = `kr ${total}`;
+	totalDetails.textContent = `kr ${total}`;
 };
 
 
 // DISPLAY DETAILS IN SUMMARY
 // country
-dropdown.addEventListener('click', function(event) {
-    if (event.target.classList.contains('dropdown-item')) {
-        const clickedCountry = event.target.textContent;
+dropdown.addEventListener('click', function(e) {
+    if (e.target.classList.contains('dropdown-item')) {
+        const clickedCountry = e.target.textContent;
         countryDetails.textContent = clickedCountry;
 		updateTotal();
 		
-		removeErrorMessage(countryInput);
+		removeErrorMessage(searchInput);
     }
 });
 
+searchInput.addEventListener('change', function() {
+	if(!searchInput.value) {
+		countryDetails.textContent = '';
+		updateTotal();
+	}
+})
+
 // city
-cityInput.addEventListener('input', function() {
+cityInput.addEventListener('blur', function() {
 	cityDetails.textContent = this.value;
 	updateTotal();
 	removeErrorMessage(cityInput);
@@ -94,14 +103,12 @@ returnInput.addEventListener('input', function() {
 })
 
 // travelers
-travelersDetails.textContent = travelersInput.value;
+travelersDetails.textContent = travelersInput.value; // display summary value as 0
 travelersInput.addEventListener('input', function() {
 	travelersDetails.textContent = this.value;
 	updateTotal();
 	removeErrorMessage(travelersInput);
 })
-
-updateTotal();
 
 // FUNCTION TO REMOVE ERROR MESSAGE FOR A SPECIFIC INPUT FIELD
 function removeErrorMessage(input) {
@@ -125,7 +132,7 @@ bookButton.addEventListener('click', (e) => {
     });
 
 	// check if input fields are empty
-	if(!countryInput.value || !cityInput.value || !departureInput.value || !returnInput.value || parseInt(travelersInput.value) === 0) {
+	if(!searchInput.value || !cityInput.value || !departureInput.value || !returnInput.value || parseInt(travelersInput.value) === 0) {
 		// display error message for travelers
 		if(parseInt(travelersInput.value) === 0) {
 			const requiredSpan = document.createElement('span');
@@ -136,7 +143,7 @@ bookButton.addEventListener('click', (e) => {
 		}
 		
 		// iterate through the inputs to find the ones that dont satisfy the conditions
-		const inputs = [countryInput, cityInput, departureInput, returnInput];
+		const inputs = [searchInput, cityInput, departureInput, returnInput];
 		const labels = [countryLabel, cityLabel, departureLabel, returnLabel];
 
 		inputs.forEach(input => {
