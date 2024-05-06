@@ -21,7 +21,7 @@ const bookButton = document.querySelector('.book-button');
 
 
 // INSERT INTO SELECT
-for(let i = 0; i <= 15; i++) {
+for(let i = 1; i <= 15; i++) {
 	let option = document.createElement('option');
 	option.textContent = i;
 	travelersInput.append(option);
@@ -35,16 +35,17 @@ totalDetails.textContent = `kr ${total}`;
 const updateTotal = () => {
     total = 0;
 
+	// country
     if (countryDetails.textContent !== '') {
         total += 500;
-		console.log('country ' + total);
     }
 
+	// city
     if (cityDetails.textContent !== '') {
         total += 100;
-		console.log('city ' + total);
     }
 
+	// departure / return
     if (departureDetails.textContent !== '' && returnDetails.textContent !== '') {
         const departureDate = new Date(departureInput.value);
         const returnDate = new Date(returnInput.value);
@@ -52,10 +53,9 @@ const updateTotal = () => {
         total += travelTime * 100;
     }
 
-    if (travelersDetails.textContent > 0) {
-        const numTravelers = parseInt(travelersInput.value);
-        total *= numTravelers;
-    }
+	// travelers  
+	const numTravelers = parseInt(travelersInput.value);
+	total *= numTravelers;
 
     // Update total details
 	totalDetails.textContent = `kr ${total}`;
@@ -103,11 +103,10 @@ returnInput.addEventListener('input', function() {
 })
 
 // travelers
-travelersDetails.textContent = travelersInput.value; // display summary value as 0
+travelersDetails.textContent = travelersInput.value; // display summary value as 1
 travelersInput.addEventListener('input', function() {
 	travelersDetails.textContent = this.value;
 	updateTotal();
-	removeErrorMessage(travelersInput);
 })
 
 // FUNCTION TO REMOVE ERROR MESSAGE FOR A SPECIFIC INPUT FIELD
@@ -132,15 +131,7 @@ bookButton.addEventListener('click', (e) => {
     });
 
 	// check if input fields are empty
-	if(!searchInput.value || !cityInput.value || !departureInput.value || !returnInput.value || parseInt(travelersInput.value) === 0) {
-		// display error message for travelers
-		if(parseInt(travelersInput.value) === 0) {
-			const requiredSpan = document.createElement('span');
-			requiredSpan.classList.add('required-span'); // add a class to identify required spans
-			requiredSpan.textContent = ' Select amount of travelers!';
-			requiredSpan.style.color = 'red';
-			travelersLabel.append(requiredSpan); // append the span next to the label
-		}
+	if(!searchInput.value || !cityInput.value || !departureInput.value || !returnInput.value) {
 		
 		// iterate through the inputs to find the ones that dont satisfy the conditions
 		const inputs = [searchInput, cityInput, departureInput, returnInput];
