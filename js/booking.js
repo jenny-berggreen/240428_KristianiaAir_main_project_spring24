@@ -123,6 +123,7 @@ bookButton.addEventListener('click', (e) => {
 	e.preventDefault();
 
 	// ---------------------- FORM VALIDATION ----------------------
+	let valid = false;
 
 	// remove existing required spans
     const existingRequiredSpans = document.querySelectorAll('.required-span');
@@ -154,9 +155,22 @@ bookButton.addEventListener('click', (e) => {
 			}
 
 		});
-
-		return;
+	} else {
+		valid = true;
 	}
 	
 	// ---------------------- END OF FORM VALIDATION ----------------------
-})
+
+	// ticket object
+	const ticket = {};
+
+	if(valid) {
+		ticket.country = countryDetails.textContent;
+		ticket.city = cityDetails.textContent;
+		ticket.departure = departureDetails.textContent;
+		ticket.return = returnDetails.textContent;
+		ticket.travelers = travelersDetails.textContent;
+		console.log(ticket);
+	}
+	
+});
