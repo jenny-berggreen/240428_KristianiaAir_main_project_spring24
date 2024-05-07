@@ -66,8 +66,9 @@ const signUpUser= () => {
 		createUserWithEmailAndPassword(authService, newUser.signUpEmail, newUser.signUpPassword)
 		.then(() => {
 			signupForm.reset();
+			console.log('User signed up');
 		})
-		.then((err) => console.log(err.message));
+		.catch((err) => console.log(err.message));
 	};
 };
 
@@ -75,4 +76,34 @@ signupButton.addEventListener('click', (e) => {
 	e.preventDefault();
 
 	signUpUser();
+});
+
+// HANDLE LOG IN ACTION
+const logInUser = () => {
+	const {signUpValidStatus} = validateSignupForm(
+		emailInputLogin,
+		passwordInputLogin,
+		emailLabelLogin,
+		passwordLabelLogin
+	);
+
+	if (!signUpValidStatus()) {
+		return;
+	} else {
+		const email = emailInputLogin.value.trim();
+		const password = passwordInputLogin.value.trim();
+
+		signInWithEmailAndPassword(authService, email, password)
+		.then(() => {
+			loginForm.reset();
+			console.log('User logged in');
+		})
+		.catch((err) => console.log(err.message));
+	};
+};
+
+loginButton.addEventListener('click', (e) => {
+	e.preventDefault();
+
+	logInUser();
 });
