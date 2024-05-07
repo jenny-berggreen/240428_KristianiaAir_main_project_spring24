@@ -30,11 +30,11 @@ nav {
 }
 
 .login-link-container {
-	display: none;
+	display: flex;
 }
 
 .mypage-link-container {
-	display: flex;
+	display: none;
 }
 
 .login-link-container,
