@@ -1,0 +1,21 @@
+main {
+	padding: var(--spacing-largest) 0;
+}
+
+.main-div {
+	gap: var(--spacing-larger);
+}
+
+.my-bookings-section {
+	width: 100%;
+}
+
+.my-bookings-section .grid {
+	width: 100%;
+	gap: var(--spacing-larger);
+	padding: var(--spacing-medium);
+}
+
+.grid-cell {
+	padding: var(--spacing-larger);
+}
