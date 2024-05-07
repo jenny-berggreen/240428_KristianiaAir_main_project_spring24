@@ -1,0 +1,20 @@
+.booking-card {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background-color: var(--color-foreground);
+	box-shadow: 3px 3px 10px 0px rgb(135, 135, 135);
+	border-bottom-left-radius: var(--border-radius);
+	border-bottom-right-radius: var(--border-radius);
+}
+
+.card-details-container {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-small);
+	padding: var(--spacing-medium);
+}
+
+.card-price {
+	color: var(--color-secondary);
+}

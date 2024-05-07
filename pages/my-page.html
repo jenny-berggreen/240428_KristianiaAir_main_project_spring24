@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/components/navbar.css">
 	<link rel="stylesheet" href="../css/components/footer.css">
+	<link rel="stylesheet" href="../css/components/booking-card.css">
 	<link rel="stylesheet" href="../css/pages/my-page.css">
 </head>
 <body>
@@ -50,12 +51,25 @@
 	<!-- MAIN -->
 	<main class="container">
 		<div class="main-div flex flex-center flex-column">
-			
+
 			<h2 class="xl ibm-plex-mono-semibold">My bookings</h2>
 
 			<section class="my-bookings-section flex flex-center">
 				<div class="grid grid-3">
 					<!-- booking cards -->
+					<div class="booking-card">
+						<div class="card-details-container">
+							<span class="card-title m">
+								City, country
+							</span>
+							<div class="card-details flex flex-column">
+								<span class="card-departure">Departure date</span>
+								<span class="card-return">Return date</span>
+								<span class="card-travelers">Travelers</span>
+								<span class="card-price text--semibold">Price total</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 
