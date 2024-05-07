@@ -30,23 +30,35 @@ nav {
 }
 
 .login-link-container {
+	display: none;
+}
+
+.mypage-link-container {
+	display: flex;
+}
+
+.login-link-container,
+.mypage-link-container {
 	flex-basis: 20%;
 	align-items: center;
 	justify-content: flex-end;
 	gap: 0.5rem;
 }
 
-.login-link-container img {
+.login-link-container img,
+.mypage-link-container img {
 	height: 2rem;
 }
 
 .page-link a,
-.login-link a {
+.login-link a,
+.mypage-link a {
 	color: var(--color-foreground);
 }
 
 .page-link:hover,
-.login-link:hover {
+.login-link:hover,
+.mypage-link:hover {
 	cursor: pointer;
 	border-bottom: solid 2px var(--color-foreground);
 }

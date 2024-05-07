@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KristianiaAir - Destinations</title>
+	<title>KristianiaAir - My page</title>
 	<link rel="stylesheet" href="../css/fonts.css">
 	<link rel="stylesheet" href="../css/reset.css">
 	<link rel="stylesheet" href="../css/utilities.css">
@@ -11,8 +11,7 @@
 	<link rel="stylesheet" href="../css/style.css">
 	<link rel="stylesheet" href="../css/components/navbar.css">
 	<link rel="stylesheet" href="../css/components/footer.css">
-	<link rel="stylesheet" href="../css/components/destination-card.css">
-	<link rel="stylesheet" href="../css/pages/destinations.css">
+	<link rel="stylesheet" href="../css/pages/my-page.css">
 </head>
 <body>
 	<!-- NAVBAR -->
@@ -26,8 +25,8 @@
 				<span class="page-link m">
 					<a href="../index.html">Home</a>
 				</span>
-				<span class="page-link page-link--active m">
-					<a href="#">Destinations</a>
+				<span class="page-link m">
+					<a href="./destinations.html">Destinations</a>
 				</span>
 				<span class="page-link m">
 					<a href="./booking.html">Booking</a>
@@ -35,52 +34,22 @@
 			</div>
 			<div class="login-link-container flex">
 				<img src="../assets/icons/login-icon.png" alt="">
-				<span class="login-link m">
-					<a href="./login.html">Log in</a>
+				<span class="login-link page-link--active m">
+					<a href="#">Log in</a>
 				</span>
 			</div>
 			<div class="mypage-link-container flex">
 				<img src="../assets/icons/login-icon.png" alt="">
-				<span class="mypage-link m">
-					<a href="./my-page.html">My page</a>
+				<span class="mypage-link page-link--active m">
+					<a href="#">My page</a>
 				</span>
 			</div>
 		</div>
 	</nav>
 
 	<!-- MAIN -->
-	<main class="container">
-		<div class="main-div flex flex-center flex-column">
-			<h2 class="xl ibm-plex-mono-semibold">Explore our destinations</h2>
-
-			<section class="sort-filter-section flex flex-row">
-				<div class="sort flex flex-center flex-row">
-					<label for="sort">Sort:</label>
-					<select name="sort" class="sort-select">
-						<option value="A-Z">Alphabetically: A-Z</option>
-						<option value="Z-A">Alphabetically: Z-A</option>
-						<option value="low-high">Price: lowest-highest</option>
-						<option value="high-low">Price: highest-lowest</option>
-					</select>
-				</div>
-				<div class="filter flex flex-center flex-row">
-					<label for="filter">Filter:</label>
-					<select name="filter" class="filter-select">
-						<option value="all">All destinations</option>
-						<option value="popular">Popular destinations</option>
-						<option value="beach">Beach destinations</option>
-						<option value="city">City destinations</option>
-					</select>
-				</div>
-			</section>
-
-			<section class="destinations-section flex flex-center">
-				<div class="grid grid-3">
-					<!-- destination cards -->
-				</div>
-			</section>
-
-		</div>
+	<main>
+		
 	</main>
 
 	<!-- FOOTER -->
@@ -88,13 +57,13 @@
 		<div class="grid">
 			<ul class="footer-list flex flex-column">
 				<li>
-					<a href="#">Destinations</a>
+					<a href="./destinations.html">Destinations</a>
 				</li>
 				<li>
 					<a href="./booking.html">Booking</a>
 				</li>
 				<li>
-					<a href="./login.html">Log in</a>
+					<a href="#">Log in</a>
 				</li>
 			</ul>
 			<ul class="footer-list flex flex-column">
@@ -106,6 +75,6 @@
 		</div>
 	</footer>
 	
-	<script src="../js/destinations.js"></script>
+	<script src="../js/my-page.js"></script>
 </body>
 </html>
