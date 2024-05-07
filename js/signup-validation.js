@@ -37,6 +37,12 @@ const validateSignupForm = (emailInput, passwordInput, emailLabel, passwordLabel
 		}
 	}
 
+	const signUpValidStatus = () => {
+		return valid;
+	}
+
+	return {signUpValidStatus};
+
 }
 
-export {validateSignupForm};
+export { validateSignupForm };

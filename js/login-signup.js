@@ -3,8 +3,8 @@
 // import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
 // import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
-// import {validateSignUpForm} from './signup-validation';
-// import {validateLoginForm} from './login-validation';
+import {validateSignupForm} from './signup-validation.js';
+import {validateLoginForm} from './login-validation.js';
 
 // // INITIALIZE FIREBASE
 // initializeApp(firebaseConfig);
@@ -48,9 +48,11 @@ openLoginButton.addEventListener('click', (e) => {
 
 // HANDLE SIGN UP ACTION
 const signUpUser= () => {
-	const {signUpValidStatus} = validateSignUpForm(
+	const {signUpValidStatus} = validateSignupForm(
 		emailInputSignup,
-		passwordInputSignup
+		passwordInputSignup,
+		emailLabelSignup,
+		passwordLabelSignup
 	);
 
 	if (!signUpValidStatus()) {
