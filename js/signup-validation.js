@@ -38,3 +38,5 @@ const validateSignupForm = (emailInput, passwordInput, emailLabel, passwordLabel
 	}
 
 }
+
+export {validateSignupForm};
