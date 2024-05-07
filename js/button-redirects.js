@@ -2,7 +2,7 @@
 const bookTripButton = document.querySelector('.hero-button');
 const destinationsButton = document.querySelector('.destinations-button');
 const bookingButton = document.querySelector('.booking-button');
-const loginButton = document.querySelector('.login-button');
+const myPageButton = document.querySelector('.my-page-button');
 
 // FUNCTION
 const redirect = (path) => {
@@ -11,17 +11,17 @@ const redirect = (path) => {
 
 // ADD EVENT LISTENERS
 bookTripButton.addEventListener('click', () => {
-  redirect('../pages/booking.html');
+  redirect('/pages/booking.html');
 });
 
 destinationsButton.addEventListener('click', () => {
-  redirect('../pages/destinations.html');
+  redirect('/pages/destinations.html');
 });
 
 bookingButton.addEventListener('click', () => {
-  redirect('../pages/booking.html');
+  redirect('/pages/booking.html');
 });
 
-loginButton.addEventListener('click', () => {
-  redirect('../pages/login.html');
+myPageButton.addEventListener('click', () => {
+  redirect('/pages/my-page.html');
 });

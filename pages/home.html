@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>KristianiaAir - Destinations</title>
+	<title>KristianiaAir - Home</title>
+
 	<link rel="stylesheet" href="/css/fonts.css">
 	<link rel="stylesheet" href="/css/reset.css">
 	<link rel="stylesheet" href="/css/utilities.css">
@@ -11,8 +12,7 @@
 	<link rel="stylesheet" href="/css/style.css">
 	<link rel="stylesheet" href="/css/components/navbar.css">
 	<link rel="stylesheet" href="/css/components/footer.css">
-	<link rel="stylesheet" href="/css/components/destination-card.css">
-	<link rel="stylesheet" href="/css/pages/destinations.css">
+	<link rel="stylesheet" href="/css/pages/home.css">
 </head>
 <body>
 	<!-- NAVBAR -->
@@ -23,13 +23,13 @@
 		</div>
 		<div class="menu flex flex-row">
 			<div class="page-links-container flex">
-				<span class="page-link m">
-					<a href="/pages/home.html">Home</a>
-				</span>
 				<span class="page-link page-link--active m">
-					<a href="#">Destinations</a>
+					<a href="#">Home</a>
 				</span>
-				<span class="page-link m">
+				<span class="page-link">
+					<a href="/pages/destinations.html">Destinations</a>
+				</span>
+				<span class="page-link">
 					<a href="/pages/booking.html">Booking</a>
 				</span>
 			</div>
@@ -43,38 +43,26 @@
 	</nav>
 
 	<!-- MAIN -->
-	<main class="container">
-		<div class="main-div flex flex-center flex-column">
-			<h2 class="xl ibm-plex-mono-semibold">Explore our destinations</h2>
-
-			<section class="sort-filter-section flex flex-row">
-				<div class="sort flex flex-center flex-row">
-					<label for="sort">Sort:</label>
-					<select name="sort" class="sort-select">
-						<option value="A-Z">Alphabetically: A-Z</option>
-						<option value="Z-A">Alphabetically: Z-A</option>
-						<option value="low-high">Price: lowest-highest</option>
-						<option value="high-low">Price: highest-lowest</option>
-					</select>
+	<main>
+		<!-- hero -->
+		<section class="hero-section">
+			<div class="hero flex flex-center">
+				<div class="header-button-container flex flex-column">
+					<h1 class="xxl ibm-plex-mono-regular">Book the trip you've always wanted with KristianiaAir</h1>
+					<button class="hero-button m">Book trip</button>
 				</div>
-				<div class="filter flex flex-center flex-row">
-					<label for="filter">Filter:</label>
-					<select name="filter" class="filter-select">
-						<option value="all">All destinations</option>
-						<option value="popular">Popular destinations</option>
-						<option value="beach">Beach destinations</option>
-						<option value="city">City destinations</option>
-					</select>
-				</div>
-			</section>
+			</div>
+		</section>
 
-			<section class="destinations-section flex flex-center">
-				<div class="grid grid-3">
-					<!-- destination cards -->
-				</div>
-			</section>
-
-		</div>
+		<!-- buttons -->
+		<section class="buttons-section">
+			<div class="buttons-container flex flex-center flex-row">
+				<button class="destinations-button text--semibold">Destinations</button>
+				<button class="booking-button text--semibold">Booking</button>
+				<button class="my-page-button text--semibold">My page</button>
+			</div>
+		</section>
+		
 	</main>
 
 	<!-- FOOTER -->
@@ -82,7 +70,7 @@
 		<div class="grid">
 			<ul class="footer-list flex flex-column">
 				<li>
-					<a href="#">Destinations</a>
+					<a href="/pages/destinations.html">Destinations</a>
 				</li>
 				<li>
 					<a href="/pages/booking.html">Booking</a>
@@ -100,6 +88,6 @@
 		</div>
 	</footer>
 	
-	<script src="/js/destinations.js"></script>
+	<script src="/js/button-redirects.js"></script>
 </body>
 </html>

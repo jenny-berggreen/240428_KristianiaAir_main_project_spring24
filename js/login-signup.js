@@ -1,23 +1,16 @@
-import firebaseConfig from "./firebaseConfig";
-import {initializeApp} from 'firebase/app';
-import {
-	getAuth, 
-	createUserWithEmailAndPassword, 
-	signOut, 
-	signInWithEmailAndPassword, 
-	onAuthStateChanged
-} from 'firebase/auth';
+// import firebaseConfig from "./firebaseConfig";
+// import { initializeApp } from 'firebase/app';
+// import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+// import { getFirestore, collection, addDoc, getDocs } from 'firebase/firestore';
 
-import {getFirestore, collection, addDoc, getDocs} from 'firebase/firestore';
+// import {validateSignUpForm} from './signup-validation';
+// import {validateLoginForm} from './login-validation';
 
-import { validateSignInForm } from "./signInValidation";
-import { validateSignUpForm } from "./signUpValidation";
+// // INITIALIZE FIREBASE
+// initializeApp(firebaseConfig);
 
-// INITIALIZE FIREBASE
-initializeApp(firebaseConfig);
-
-// INITIALIZE AUTH SERVICE
-const authService = getAuth();
+// // INITIALIZE AUTH SERVICE
+// const authService = getAuth();
 
 // GET ELEMENTS FROM THE DOM
 // login form
