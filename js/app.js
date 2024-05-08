@@ -106,3 +106,15 @@ const logInUser = () => {
 		.catch((err) => console.log(err.message));
 	};
 };
+
+function checkAuthStateAndRender() {
+	onAuthStateChanged(authService, (user) => {
+		if(user) {
+			window.location.href = '/pages/home.html';
+		} else {
+			window.location.href = '/dist/index.html';
+		}
+	})
+};
+
+checkAuthStateAndRender();
