@@ -19,7 +19,6 @@ const emailInputLogin = document.querySelector('.email-input--login');
 const passwordInputLogin = document.querySelector('.password-input--login');
 const passwordLabelLogin = document.querySelector('label[for="password"]');
 const openSignupButton = document.querySelector('.open-signup-button');
-const loginButton = document.querySelector('.login-button');
 
 // signup form
 const signupForm = document.querySelector('.form-container--signup');
@@ -28,34 +27,52 @@ const emailInputSignup = document.querySelector('.email-input--signup');
 const passwordLabelSignup = document.querySelector('label[for="password-signup"]');
 const passwordInputSignup = document.querySelector('.password-input--signup');
 const openLoginButton = document.querySelector('.open-login-button');
+
+// buttons
+const loginButton = document.querySelector('.login-button');
 const signupButton = document.querySelector('.signup-button');
+const signoutButton = document.querySelector('.signout-button');
 
 // EVENT LISTENERS
-openSignupButton.addEventListener('click', (e) => {
-	e.preventDefault();
+if(openSignupButton) {
+	openSignupButton.addEventListener('click', (e) => {
+		e.preventDefault();
+	
+		loginForm.style.display = 'none';
+		signupForm.style.display = 'flex';
+	});
+}
 
-	loginForm.style.display = 'none';
-	signupForm.style.display = 'flex';
-});
+if(openLoginButton) {
+	openLoginButton.addEventListener('click', (e) => {
+		e.preventDefault();
+	
+		loginForm.style.display = 'flex';
+		signupForm.style.display = 'none';
+	});
+}
 
-openLoginButton.addEventListener('click', (e) => {
-	e.preventDefault();
+if(signupButton) {
+	signupButton.addEventListener('click', (e) => {
+		e.preventDefault();
+	
+		signUpUser();
+	});
+}
 
-	loginForm.style.display = 'flex';
-	signupForm.style.display = 'none';
-});
+if(loginButton) {
+	loginButton.addEventListener('click', (e) => {
+		e.preventDefault();
+	
+		logInUser();
+	});
+}
 
-signupButton.addEventListener('click', (e) => {
-	e.preventDefault();
-
-	signUpUser();
-});
-
-loginButton.addEventListener('click', (e) => {
-	e.preventDefault();
-
-	logInUser();
-});
+if(signoutButton) {
+	signoutButton.addEventListener('click', () => {
+		signOutUser();
+	});
+}
 
 // HANDLE SIGN UP ACTION
 const signUpUser= () => {
@@ -77,6 +94,7 @@ const signUpUser= () => {
 		createUserWithEmailAndPassword(authService, newUser.signUpEmail, newUser.signUpPassword)
 		.then(() => {
 			signupForm.reset();
+			checkAuthStateAndRender();
 			console.log('User signed up');
 		})
 		.catch((err) => console.log(err.message));
@@ -101,20 +119,37 @@ const logInUser = () => {
 		signInWithEmailAndPassword(authService, email, password)
 		.then(() => {
 			loginForm.reset();
+			checkAuthStateAndRender();
 			console.log('User logged in');
 		})
 		.catch((err) => console.log(err.message));
 	};
 };
 
+// HANDLE SIGN OUT ACTION
+const signOutUser = () => {
+	signOut(authService)
+	.then(() => {
+		checkAuthStateAndRender();
+		console.log('signed out');
+	})
+	.catch((error) => {
+		console.log(error.message);
+	})
+};
+
+// CHECK AUTH STATE AND RENDER
+
 function checkAuthStateAndRender() {
 	onAuthStateChanged(authService, (user) => {
 		if(user) {
+			console.log('logged in');
 			window.location.href = '/pages/home.html';
 		} else {
+			console.log('logged out');
 			window.location.href = '/dist/index.html';
 		}
 	})
 };
 
-checkAuthStateAndRender();
+//checkAuthStateAndRender();
