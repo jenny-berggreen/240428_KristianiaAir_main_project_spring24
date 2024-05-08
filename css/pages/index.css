@@ -1,62 +1,62 @@
-.hero {
-	height: 40rem;
-	background-image: url(../../assets/images/home_hero.jpg);
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: 0% 20%;
+.login-section {
+	height: 92vh;
 }
 
-.header-button-container {
-	margin-top: -8rem;
-	width: 100%;
-	gap: 2rem;
-	padding: 0 var(--spacing-larger);
+.container,
+.center-div {
+	height: 100%;
 }
 
-.header-button-container h1 {
-	width: 60%;
-	line-height: 4rem;
-	letter-spacing: 0.5rem;
-	color: var(--color-foreground);
+.center-div {
+	padding: 0 var(--spacing-small);
 }
 
-.hero-button {
-	width: 15rem;
-	background: none;
-	border: solid 2px var(--color-secondary);
-	color: var(--color-secondary);
-	padding: 0.7rem var(--spacing-medium);
-}
-
-.hero-button:hover {
-	background-color: var(--color-secondary);
-	color: var(--color-foreground);
-}
-
-.buttons-container {
-	height: 13rem;
-	justify-content: space-between;
-	padding: 0 18rem;
-}
-
-.buttons-container button {
+.form-container--login {
 	display: flex;
-	align-items: center;
-	padding-left: var(--spacing-largest);
-	background-color: var(--color-secondary);
+}
+
+.form-container--signup {
+	display: none;
+}
+
+.form-container {
+	width: 100%;
+	padding: var(--spacing-large) var(--spacing-largest);
+	gap: var(--spacing-largest);
+	box-shadow: 0px 0px 14px 0px rgb(135, 135, 135);
+	background-color: var(--color-foreground);
+	color: black;
+}
+
+.input-section {
+	gap: var(--spacing-medium);
+}
+
+.input-group {
+	gap: var(--spacing-x-small);
+}
+
+input {
+	width: 26rem;
+}
+
+.open-signup-button,
+.open-login-button {
+	padding: 0;
+	background: none;
+}
+
+.open-signup-button:hover,
+.open-login-button:hover {
+	font-weight: 800;
+	color: var(--color-secondary);
+}
+
+.login-signup-button {
+	width: 16rem;
+	background-color: var(--color-primary);
 	color: var(--color-foreground);
 }
-
-.buttons-container button:hover {
-	background-color: #760db7;
-}
-
-.buttons-container button::after {
-	content: '';
-	display: inline-block;
-	background: url('../../assets/icons/arrow-icon.png') no-repeat bottom;
-	background-size: contain;
-	width: 1rem;
-	height: 1rem;
-	margin-left: var(--spacing-large);
+.login-signup-button:hover {
+	background-color: #c61535;
 }
