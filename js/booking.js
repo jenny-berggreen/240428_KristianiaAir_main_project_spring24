@@ -74,6 +74,7 @@ searchInput.addEventListener('input', async () => {
         updateTotal();
     } else {
         await fetchAndCheckCountries(searchInput.value);
+        await fetchAndDisplayCountries(searchInput.value);
     }
 });
 
