@@ -19,6 +19,7 @@ const returnDetails = document.querySelector('.details-value--return');
 const travelersDetails = document.querySelector('.details-value--travelers');
 const totalDetails = document.querySelector('.details-value--total');
 
+const bookingForm = document.querySelector('.booking-form-container');
 const bookButton = document.querySelector('.book-button');
 
 
@@ -128,7 +129,6 @@ function removeErrorMessage(input) {
 
 bookButton.addEventListener('click', async (e) => {
 	e.preventDefault();
-	console.log(searchInput.value);
 
 	// ---------------------- FORM VALIDATION ----------------------
 	let valid = false;
@@ -166,7 +166,6 @@ bookButton.addEventListener('click', async (e) => {
 		// check if input value is valid country name
 		if(searchInput.value) {
 			await fetchAndCheckCountries(searchInput.value);
-			console.log('here2');
 		}
 	} else {
 		// check if input value is valid country name
@@ -191,6 +190,15 @@ bookButton.addEventListener('click', async (e) => {
 		ticket.return = returnDetails.textContent;
 		ticket.travelers = travelersDetails.textContent;
 		console.log(ticket);
-	}
-	
+
+		// reset
+		bookingForm.reset();
+
+		const details = [countryDetails, cityDetails, departureDetails, returnDetails, travelersDetails];
+		details.forEach(detail => {
+			detail.textContent = '';
+		});
+		
+		updateTotal();
+	};
 });
