@@ -1,9 +1,9 @@
 // FUNCTION TO FETCH COUNTRIES AND CALL DISPLAY FUNCTION
-const fetchAndDisplayCountries = async () => {
+const fetchAndDisplayCountries = async (value) => {
 	try {
 		const response = await fetch('https://restcountries.com/v3.1/all');
 		const countries = await response.json();
-		displayFilteredCountries(countries);
+		displayFilteredCountries(countries, value);
 		
 	} catch (error) {
 		console.log(error);
@@ -23,8 +23,8 @@ const fetchAndCheckCountries = async (value) => {
 };
 
 // FUNCTION TO DISPLAY COUNTRIES BASED ON SEARCH TERM IN INPUT
-const displayFilteredCountries = (countries) => {
-	const searchTerm = searchInput.value.trim().toLowerCase();
+const displayFilteredCountries = (countries, value) => {
+	const searchTerm = value.trim().toLowerCase();
 	
 	// filter countries based on the search term
 	const filteredCountries = countries.filter(country => country.name.common.toLowerCase().includes(searchTerm));

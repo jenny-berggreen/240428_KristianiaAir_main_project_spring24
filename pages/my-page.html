@@ -26,7 +26,7 @@
 				<span class="page-link m">
 					<a href="/pages/home.html">Home</a>
 				</span>
-				<span class="page-link page-link--active m">
+				<span class="page-link m">
 					<a href="/pages/destinations.html">Destinations</a>
 				</span>
 				<span class="page-link m">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="mypage-link-container flex">
 				<img src="/assets/icons/login-icon.png" alt="">
-				<span class="mypage-link m">
+				<span class="mypage-link page-link--active m">
 					<a href="#">My page</a>
 				</span>
 			</div>
@@ -46,7 +46,12 @@
 	<main class="container">
 		<div class="main-div flex flex-center flex-column">
 
-			<h2 class="xl ibm-plex-mono-semibold">My bookings</h2>
+			<section class="header-section grid grid-3">
+				<h2 class="xl ibm-plex-mono-semibold">My bookings</h2>
+				<div class="button-container flex">
+					<button class="signout-button">Sign out</button>
+				</div>
+			</section>
 
 			<section class="my-bookings-section flex flex-center">
 				<div class="grid grid-3">
@@ -94,5 +99,6 @@
 	</footer>
 	
 	<script src="../js/my-page.js"></script>
+	<!-- <script src="../dist/bundle.js"></script> -->
 </body>
 </html>
