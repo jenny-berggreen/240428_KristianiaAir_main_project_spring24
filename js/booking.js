@@ -189,6 +189,7 @@ bookButton.addEventListener('click', async (e) => {
 		ticket.departure = departureDetails.textContent;
 		ticket.return = returnDetails.textContent;
 		ticket.travelers = travelersDetails.textContent;
+		ticket.total = totalDetails.textContent;
 		console.log(ticket);
 
 		// reset
