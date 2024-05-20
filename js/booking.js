@@ -1,4 +1,5 @@
-import { saveTicketToFirestore } from './ticket.js';
+import { saveTicketToFirestore } from './tickets.js';
+import { fetchAndDisplayCountries, fetchAndCheckCountries } from './fetch-countries.js';
 
 // GET ELEMENTS FROM THE DOM
 const searchInput = document.querySelector('.search-input');
@@ -89,6 +90,11 @@ dropdown.addEventListener('click', function(e) {
 		
 		removeErrorMessage(searchInput);
     }
+});
+
+// hide dropdown at click outside of input
+document.addEventListener('click', function() {
+	dropdown.style.display = 'none';
 });
 
 // city
@@ -208,3 +214,5 @@ bookButton.addEventListener('click', async (e) => {
 		updateTotal();
 	};
 });
+
+export { removeErrorMessage, updateTotal };

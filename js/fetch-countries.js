@@ -1,3 +1,11 @@
+import { removeErrorMessage, updateTotal } from "./booking";
+
+// GET ELEMENTS FROM THE DOM
+const searchInput = document.querySelector('.search-input');
+const dropdown = document.querySelector('.dropdown-list');
+const countryDetails = document.querySelector('.details-value--country');
+const countryLabel = document.querySelector('label[for="country"]');
+
 // FUNCTION TO FETCH COUNTRIES AND CALL DISPLAY FUNCTION
 const fetchAndDisplayCountries = async (value) => {
 	try {
@@ -59,11 +67,6 @@ const displayFilteredCountries = (countries, value) => {
 	dropdown.style.display = filteredCountries.length > 0 ? 'block' : 'none';
 };
 
-// hide dropdown at click outside of input
-document.addEventListener('click', function() {
-	dropdown.style.display = 'none';
-});
-
 // FUNCTION TO CHECK IF INPUT VALUE IS A VALID COUNTRY
 const checkValue = (value, countries) => {
 	removeErrorMessage(searchInput);
@@ -91,5 +94,6 @@ const checkValue = (value, countries) => {
 			countryLabel.append(requiredSpan); // append the span next to the label
 		}
 	};
-	
 };
+
+export { fetchAndDisplayCountries, fetchAndCheckCountries };
