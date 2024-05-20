@@ -1,3 +1,5 @@
+import { saveTicketToFirestore } from './ticket.js';
+
 // GET ELEMENTS FROM THE DOM
 const searchInput = document.querySelector('.search-input');
 const dropdown = document.querySelector('.dropdown-list');
@@ -171,7 +173,7 @@ bookButton.addEventListener('click', async (e) => {
 		// check if input value is valid country name
 		await fetchAndCheckCountries(searchInput.value);
 
-		// check if there are noe error messages
+		// check if there are no error messages
 		const errorMessageSpans = document.querySelectorAll('.required-span');
 		if (errorMessageSpans.length === 0) {
 			valid = true;
@@ -191,6 +193,9 @@ bookButton.addEventListener('click', async (e) => {
 		ticket.travelers = travelersDetails.textContent;
 		ticket.total = totalDetails.textContent;
 		console.log(ticket);
+
+		// save ticket to Firestore
+        await saveTicketToFirestore(ticket);
 
 		// reset
 		bookingForm.reset();
