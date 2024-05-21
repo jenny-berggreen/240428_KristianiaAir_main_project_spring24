@@ -1,6 +1,9 @@
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
+// ACCESS THE TICKETS COLLECTION IN FIRESTORE
+const ticketsCollection = collection(db, 'tickets');
+
 const saveTicketToFirestore = async (ticketData) => {
     try {
         const docRef = await addDoc(collection(db, 'tickets'), ticketData);
@@ -10,4 +13,17 @@ const saveTicketToFirestore = async (ticketData) => {
     }
 };
 
-export { saveTicketToFirestore };
+const getTicketsFromFirestore = async () => {
+    try {
+        const snapshot = await getDocs(ticketsCollection);
+        const tickets = [];
+        snapshot.forEach((doc) => {
+            tickets.push({ id: doc.id, ...doc.data() });
+        });
+        return tickets;
+    } catch (e) {
+        console.error('Error retrieving tickets: ', e);
+    }
+};
+
+export { saveTicketToFirestore, getTicketsFromFirestore };
