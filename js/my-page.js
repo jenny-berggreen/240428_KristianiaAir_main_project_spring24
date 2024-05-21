@@ -12,11 +12,11 @@ const createTicketCard = (ticket) => {
     cardDetailsContainer.classList.add('card-details-container');
 
 	const cardTitle = document.createElement('span');
-	cardTitle.classList.add('card-title m');
+	cardTitle.classList.add('card-title', 'm');
 	cardTitle.textContent = `${ticket.city}, ${ticket.country}`;
 
 	const cardDetails = document.createElement('div');
-	cardDetails.classList.add('card-details flex flex-column');
+	cardDetails.classList.add('card-details', 'flex', 'flex-column');
 
 	const departureDate = document.createElement('span');
 	departureDate.classList.add('card-departure');
@@ -31,29 +31,36 @@ const createTicketCard = (ticket) => {
 	travelers.textContent = `Travelers: ${ticket.travelers}`;
 
 	const priceTotal = document.createElement('span');
-	priceTotal.classList.add('card-price text--semibold');
+	priceTotal.classList.add('card-price', 'text--semibold');
 	priceTotal.textContent = `Total: ${ticket.total}`;
 
 	card.appendChild(cardDetailsContainer);
-	cardDetailsContainer.appendChild(cardTitle, cardDetails);
-	cardDetails.appendChild(departureDate, returnDate, travelers, priceTotal);
+	cardDetailsContainer.appendChild(cardTitle);
+	cardDetailsContainer.appendChild(cardDetails);
+	cardDetails.appendChild(departureDate);
+	cardDetails.appendChild(returnDate);
+	cardDetails.appendChild(travelers);
+	cardDetails.appendChild(priceTotal);
 
 	return card;
-}
-
-const displayTickets = (tickets) => {
-	tickets.forEach(ticket => {
-		console.log(ticket);
-	});
-	
-}
-
-const loadTickets = async () => {
-    const tickets = await getTicketsFromFirestore();
-    displayTickets(tickets);
 };
 
-loadTickets();
+// FUNCTION TO RENDER TICKETS
+const renderTickets = (tickets) => {
+	tickets.forEach(ticket => {
+		const card = createTicketCard(ticket);
+		ticketsGrid.appendChild(card);
+	});
+	
+};
+
+// FUNCTION TO LOAD TICKETS FROM FIRESTORE
+const loadTickets = async () => {
+    const tickets = await getTicketsFromFirestore();
+    renderTickets(tickets);
+};
+
+document.addEventListener('DOMContentLoaded', loadTickets);
 
 
 
