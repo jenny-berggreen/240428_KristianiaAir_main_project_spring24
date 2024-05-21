@@ -75,7 +75,7 @@ const checkAuthStateAndRender = () => {
             window.location.href = '/pages/home.html';
         } else {
             console.log('logged out');
-            window.location.href = '/dist/index.html';
+            window.location.href = '/index.html';
         }
     });
 };
