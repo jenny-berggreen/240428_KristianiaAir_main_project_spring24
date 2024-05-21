@@ -1,5 +1,5 @@
 import { db } from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 // ACCESS THE TICKETS COLLECTION IN FIRESTORE
 const ticketsCollection = collection(db, 'tickets');
