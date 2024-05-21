@@ -1,5 +1,7 @@
-import { saveTicketToFirestore } from './tickets.js';
-import { fetchAndDisplayCountries, fetchAndCheckCountries } from './fetch-countries.js';
+console.log('Booking script loaded:', new Date());
+
+import { saveTicketToFirestore } from './tickets';
+import { fetchAndDisplayCountries, fetchAndCheckCountries } from './fetch-countries';
 
 // GET ELEMENTS FROM THE DOM
 const searchInput = document.querySelector('.search-input');

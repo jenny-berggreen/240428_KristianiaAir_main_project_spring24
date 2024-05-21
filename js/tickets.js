@@ -1,4 +1,4 @@
-import { db } from './firebase.js';
+import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 
 const saveTicketToFirestore = async (ticketData) => {

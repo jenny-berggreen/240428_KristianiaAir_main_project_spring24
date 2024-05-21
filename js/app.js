@@ -1,4 +1,4 @@
-import { signUpUser, logInUser, signOutUser } from './auth.js';
+import { signUpUser, logInUser, signOutUser } from './auth';
 
 // GET ELEMENTS FROM THE DOM
 const loginForm = document.querySelector('.form-container--login');

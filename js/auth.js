@@ -1,7 +1,7 @@
-import { auth } from './firebase.js';
+import { auth } from './firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
-import { validateSignupForm } from './signup-validation.js';
-import { validateLoginForm } from './login-validation.js';
+import { validateSignupForm } from './signup-validation';
+import { validateLoginForm } from './login-validation';
 
 // HANDLE SIGN UP ACTION
 const signUpUser = (emailInputSignup, passwordInputSignup, emailLabelSignup, passwordLabelSignup) => {
