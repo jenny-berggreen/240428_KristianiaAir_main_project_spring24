@@ -15,21 +15,21 @@
 </head>
 <body>
 	<!-- NAVBAR -->
-	<nav class="flex flex-row">
+	<nav class="flex flex-row" id="nav">
 		<div class="logo-container flex">
 			<span class="text--semibold l">KristianiaAir</span>
 			<img src="/assets/icons/plane-icon.png" alt="">
 		</div>
 		<div class="menu flex flex-row">
 			<div class="page-links-container flex">
-				<span class="page-link m">
+				<span class="page-link page-link--active m">
 					<a href="/pages/home.html">Home</a>
 				</span>
 				<span class="page-link m">
 					<a href="/pages/destinations.html">Destinations</a>
 				</span>
-				<span class="page-link page-link--active m">
-					<a href="#">Booking</a>
+				<span class="page-link m">
+					<a href="/pages/booking.html">Booking</a>
 				</span>
 			</div>
 			<div class="mypage-link-container flex">
@@ -39,7 +39,35 @@
 				</span>
 			</div>
 		</div>
+		<div class="hamburger-icon-container">
+			<img class="hamburger-icon" src="/assets/icons/hamburger-icon.png">
+		</div>
 	</nav>
+
+	<div class="opened-hamburger-menu">
+		<div class="close-icon-container flex">
+			<img class="close-icon" src="/assets/icons/close-icon.png">
+		</div>
+		<div class="hamburger-menu flex flex-column">
+			<div class="page-links-container flex flex-column">
+				<span class="page-link m">
+					<a href="/pages/home.html">Home</a>
+				</span>
+				<span class="page-link m">
+					<a href="/pages/destinations.html">Destinations</a>
+				</span>
+				<span class="page-link page-link--active m">
+					<a href="/pages/booking.html">Booking</a>
+				</span>
+			</div>
+			<div class="mypage-link-container flex">
+				<img src="/assets/icons/login-icon.png" alt="">
+				<span class="mypage-link m">
+					<a href="/pages/my-page.html">My page</a>
+				</span>
+			</div>
+		</div>
+	</div>
 
 	<!-- MAIN -->
 	<main>
@@ -151,5 +179,6 @@
 	
 	<script src="/dist/booking.bundle.js"></script>
 	<script src="/dist/fetchCountries.bundle.js"></script>
+	<script src="/js/hamburger-menu.js"></script>
 </body>
 </html>

@@ -17,3 +17,21 @@
 	--spacing-larger: 3rem;
 	--spacing-largest: 4rem;
 }
+
+@media (max-width: 1024px) {
+	:root {
+		--font-size-base: 0.95rem;
+	}
+}
+
+@media (max-width: 916px) {
+	:root {
+		--font-size-base: 0.9rem;
+	}
+}
+
+@media (max-width: 768px) {
+	:root {
+		--font-size-base: 0.8rem;
+	}
+}
