@@ -22,7 +22,10 @@ module.exports = {
     },
     watch: true,
     plugins: [
-        new dotenv()
+        new dotenv({
+            path: './.env',
+            systemvars: true,
+        })
     ]
 };
 
