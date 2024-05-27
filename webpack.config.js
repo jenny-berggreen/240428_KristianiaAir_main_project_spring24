@@ -1,8 +1,8 @@
 const path = require('path');
-const dotenv = require('dotenv-webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV || 'development',
     entry: {
         app: './js/app.js',
         auth: './js/auth.js',
@@ -20,13 +20,14 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
-    watch: true,
+    watch: process.env.NODE_ENV !== 'production',
     plugins: [
-        new dotenv({
+        new Dotenv({
             path: './.env',
             systemvars: true,
         })
     ]
 };
+
 
 
