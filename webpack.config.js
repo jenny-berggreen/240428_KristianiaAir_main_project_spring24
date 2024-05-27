@@ -20,7 +20,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
-    watch: true,
+    watch: false,
     plugins: [
         new Dotenv()
     ]
