@@ -1,6 +1,7 @@
 import { saveTicketToFirestore } from './tickets';
 import { fetchAndDisplayCountries, fetchAndCheckCountries } from './fetch-countries';
 import { removeErrorMessage, updateTotal } from './shared';
+import { displayToast } from './toast';
 
 // GET ELEMENTS FROM THE DOM
 const searchInput = document.querySelector('.search-input');
@@ -171,5 +172,8 @@ bookButton.addEventListener('click', async (e) => {
         });
         
         updateTotal(countryDetails, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
+
+        // display toast
+        displayToast();
     }
 });

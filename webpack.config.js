@@ -15,6 +15,7 @@ module.exports = {
         myPage: './js/my-page.js',
         signupValidation: './js/signup-validation.js',
         tickets: './js/tickets.js',
+        toast: './js/toast.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
