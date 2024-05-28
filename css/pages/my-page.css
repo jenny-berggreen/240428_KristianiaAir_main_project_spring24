@@ -33,8 +33,52 @@ main {
 	width: 100%;
 }
 
-.my-bookings-section .grid {
+.tickets-grid {
 	width: 100%;
 	gap: var(--spacing-larger);
 	padding: var(--spacing-medium);
+}
+
+@media (max-width: 1024px) {
+	.tickets-grid {
+		gap: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.main-div {
+		gap: var(--spacing-medium);
+	}
+}
+
+@media (max-width: 700px) {
+	.tickets-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 550px) {
+	.signout-button {
+		padding: var(--spacing-x-small) var(--spacing-small);
+	}
+}
+
+@media (max-width: 400px) {
+	main {
+		position: relative;
+		
+	}
+	.button-container {
+		position: absolute;
+		right: 0;
+		top: 10px;
+	}
+
+	.header-section h2 {
+		grid-column: span 3; 
+	}
+
+	.tickets-grid {
+		grid-template-columns: 1fr;
+	}
 }
