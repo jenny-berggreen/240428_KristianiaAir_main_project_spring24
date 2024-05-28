@@ -24,9 +24,8 @@ const signUpUser = (emailInputSignup, passwordInputSignup, emailLabelSignup, pas
             .then(() => {
                 document.querySelector('.form-container--signup').reset();
                 checkAuthStateAndRender();
-                console.log('User signed up');
             })
-            .catch((err) => console.log(err.message));
+            .catch((err) => alert(err.message));
     }
 };
 
@@ -49,9 +48,8 @@ const logInUser = (emailInputLogin, passwordInputLogin, emailLabelLogin, passwor
             .then(() => {
                 document.querySelector('.form-container--login').reset();
                 checkAuthStateAndRender();
-                console.log('User logged in');
             })
-            .catch((err) => console.log(err.message));
+            .catch((err) => alert(err.message));
     }
 };
 
@@ -60,10 +58,9 @@ const signOutUser = () => {
     signOut(auth)
         .then(() => {
             checkAuthStateAndRender();
-            console.log('signed out');
         })
         .catch((error) => {
-            console.log(error.message);
+            alert(error.message);
         });
 };
 
@@ -71,10 +68,8 @@ const signOutUser = () => {
 const checkAuthStateAndRender = () => {
     onAuthStateChanged(auth, (user) => {
         if (user) {
-            console.log('logged in');
             window.location.href = '/pages/home.html';
         } else {
-            console.log('logged out');
             window.location.href = '/index.html';
         }
     });

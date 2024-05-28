@@ -1,5 +1,3 @@
-console.log('Booking script loaded:', new Date());
-
 import { saveTicketToFirestore } from './tickets';
 import { fetchAndDisplayCountries, fetchAndCheckCountries } from './fetch-countries';
 import { removeErrorMessage, updateTotal } from './shared';

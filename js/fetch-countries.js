@@ -18,7 +18,6 @@ const fetchAndDisplayCountries = async (value) => {
 };
 
 // FUNCTION TO FETCH COUNTRIES AND CALL CHECK FUNCTION
-// FUNCTION TO FETCH COUNTRIES AND CALL CHECK FUNCTION
 const fetchAndCheckCountries = async (value, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails) => {
     try {
         const response = await fetch('https://restcountries.com/v3.1/all');
@@ -28,7 +27,6 @@ const fetchAndCheckCountries = async (value, cityDetails, departureDetails, retu
         console.log(error);
     }
 };
-
 
 // FUNCTION TO DISPLAY COUNTRIES BASED ON SEARCH TERM IN INPUT
 const displayFilteredCountries = (countries, value) => {
