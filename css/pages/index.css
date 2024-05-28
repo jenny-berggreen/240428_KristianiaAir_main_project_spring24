@@ -1,5 +1,5 @@
 .login-section {
-	height: 92vh;
+	height: 40rem;
 }
 
 .container,
@@ -36,7 +36,10 @@
 	gap: var(--spacing-x-small);
 }
 
-input {
+.email-input--login, 
+.password-input--login,
+.email-input--signup, 
+.password-input--signup {
 	width: 26rem;
 }
 
@@ -59,4 +62,36 @@ input {
 }
 .login-signup-button:hover {
 	background-color: #c61535;
+}
+
+@media (max-width: 700px) {
+	.email-input--login, 
+	.password-input--login,
+	.email-input--signup, 
+	.password-input--signup {
+		width: 20rem;
+	}
+}
+
+@media (max-width: 400px) {
+	.login-section {
+		height: 35rem;
+	}
+
+	.form-container {
+		gap: var(--spacing-large);
+	}
+
+	.email-input--login, 
+	.password-input--login,
+	.email-input--signup, 
+	.password-input--signup {
+		width: 15rem;
+		padding: 0.3rem var(--spacing-x-small);
+	}
+
+	.login-signup-button {
+		padding: 0.8rem var(--spacing-small);
+		width: 12rem;
+	}
 }
