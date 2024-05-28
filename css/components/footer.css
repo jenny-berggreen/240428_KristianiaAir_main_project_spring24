@@ -25,3 +25,9 @@ footer .grid {
 	grid-column: span 2;
 	text-align: center;
 }
+
+@media (max-width: 425px) {
+	footer .grid {
+		column-gap: 7rem;
+	}
+}

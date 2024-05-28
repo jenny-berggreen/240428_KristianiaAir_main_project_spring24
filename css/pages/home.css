@@ -153,8 +153,4 @@
 	.header-button-container {
 		padding: 0 var(--spacing-medium);
 	}
-
-	footer .grid {
-		column-gap: 7rem;
-	}
 }
