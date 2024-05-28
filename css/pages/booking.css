@@ -1,6 +1,5 @@
 .hero-section {
-	width: 100vw;
-	height: 92vh;
+	height: 40rem;
 	background-image: url(../../assets/images/booking_hero.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -14,8 +13,9 @@
 
 .booking-form-container {
 	width: 100%;
+	height: 35rem;
+	justify-content: space-between;
 	padding: var(--spacing-large) var(--spacing-largest);
-	gap: var(--spacing-largest);
 	background-color: #4141418d;
 	color: var(--color-foreground);
 }
@@ -36,7 +36,7 @@
 .departure-return,
 .travelers,
 .input-group,
-.summary-section div,
+.summary-details-container,
 .search-container,
 input {
 	width: 100%;
@@ -108,4 +108,79 @@ input {
 }
 .book-button:hover {
 	background-color: #c61535;
+}
+
+@media (max-width: 700px) {
+	.booking-form-container {
+		overflow-x: hidden;
+        overflow-y: auto;
+		justify-content: flex-start;
+		gap: var(--spacing-large);
+	}
+
+	.row-div {
+		flex-direction: column;
+		gap: var(--spacing-medium);
+	}
+
+	.input-section {
+		width: 100%;
+	}
+
+	.summary-section {
+		width: 100%;
+		border-left: none;
+		border-top: solid 1px var(--color-foreground);
+		padding: 0;
+		flex-basis: auto;
+	}
+
+	.summary-header {
+		margin-top: var(--spacing-small);
+	}
+
+	.summary-details-container {
+		width: 50%;
+	}
+}
+
+@media (max-width: 400px) {
+	.booking-form-container {
+		padding: var(--spacing-large) var(--spacing-medium);;
+	}
+
+	.input-section {
+		gap: var(--spacing-small);
+	}
+
+	.input-section input,
+	.input-section select {
+		padding: 0.3rem var(--spacing-x-small);;
+	}
+
+	.summary-details-container {
+		width: 70%;
+	}
+	
+	.book-button {
+		width: 12rem;
+		padding: 0.8rem var(--spacing-small);
+	}
+}
+
+@media (max-width: 300px) {
+	.booking-form-container {
+		padding: var(--spacing-large) var(--spacing-small);;
+	}
+
+	.input-section {
+		gap: var(--spacing-small);
+	}
+
+	.country-city, 
+	.departure-return, 
+	.travelers {
+		flex-direction: column;
+		gap: var(--spacing-small);
+	}
 }
