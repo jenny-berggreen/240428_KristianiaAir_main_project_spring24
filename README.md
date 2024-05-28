@@ -14,6 +14,9 @@ This project is a website for a fictive airline where the user can make an accou
 * Users can sort the destinations alphabetically (A-Z or Z-A) or by price (lowest-highest or highest-lowest).
 * Users can filter the destinations by popular, beach or city destinations.
 
+# Environment variables
+* Sensitive information, such as the Firebase API key, is obfuscated in the source code to hide it from public eyes.
+
 https://kristianiaair-main-project-spring24.netlify.app 
 
 
