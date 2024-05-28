@@ -5,6 +5,7 @@ This project is a website for a fictive airline where the user can make an accou
 # Firebase
 * Users have to sign up for an account which stores their user email and password in firebase. This information is checked and verified the next time the user tries to log in. It is the auth.js file that handles the sign up, log in and log out logic.
 * The tickets.js file contains functions for saving/storing booking tickets to firestore and retrieving them. A call to the saving function happens after successfully booking a trip in booking.js. When going to 'My page', a call to the retrieving function happens, which gets the stored tickets from firestore and displays them on the page. 
+* !Important! Be patient when waiting for the tickets to appear on 'My page', it might take some time.
 
 # API
 * The project uses the REST Countries API to display a dropdown menu of countries when typing in the countries input field on the booking page. 
