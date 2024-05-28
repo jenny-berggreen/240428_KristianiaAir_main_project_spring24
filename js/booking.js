@@ -99,81 +99,85 @@ travelersInput.addEventListener('input', function() {
 bookButton.addEventListener('click', async (e) => {
     e.preventDefault();
 
-    // ---------------------- FORM VALIDATION ----------------------
-    let valid = false;
+    try {
+        // ---------------------- FORM VALIDATION ----------------------
+        let valid = false;
 
-    // remove existing required spans
-    const existingRequiredSpans = document.querySelectorAll('.required-span');
-    existingRequiredSpans.forEach(span => {
-        span.remove();
-    });
+        // remove existing required spans
+        const existingRequiredSpans = document.querySelectorAll('.required-span');
+        existingRequiredSpans.forEach(span => {
+            span.remove();
+        });
 
-    // check if input fields are empty
-    if(!searchInput.value || !cityInput.value || !departureInput.value || !returnInput.value) {
-        
-        // iterate through the inputs to find the ones that dont satisfy the conditions
-        const inputs = [searchInput, cityInput, departureInput, returnInput];
-        const labels = [countryLabel, cityLabel, departureLabel, returnLabel];
+        // check if input fields are empty
+        if(!searchInput.value || !cityInput.value || !departureInput.value || !returnInput.value) {
+            
+            // iterate through the inputs to find the ones that dont satisfy the conditions
+            const inputs = [searchInput, cityInput, departureInput, returnInput];
+            const labels = [countryLabel, cityLabel, departureLabel, returnLabel];
 
-        inputs.forEach(input => {
-            if(!input.value) {
-                let inputName = input.name;
-                labels.forEach(label => {
-                    const labelFor = label.getAttribute('for');
-                    if(inputName === labelFor) {
-                        const requiredSpan = document.createElement('span');
-                        requiredSpan.classList.add('required-span');
-                        requiredSpan.textContent = ' Required!';
-                        requiredSpan.style.color = 'red';
-                        label.append(requiredSpan);
-                    }
-                });
+            inputs.forEach(input => {
+                if(!input.value) {
+                    let inputName = input.name;
+                    labels.forEach(label => {
+                        const labelFor = label.getAttribute('for');
+                        if(inputName === labelFor) {
+                            const requiredSpan = document.createElement('span');
+                            requiredSpan.classList.add('required-span');
+                            requiredSpan.textContent = ' Required!';
+                            requiredSpan.style.color = 'red';
+                            label.append(requiredSpan);
+                        }
+                    });
+                }
+            });
+
+            // check if input value is valid country name
+            if(searchInput.value) {
+                await fetchAndCheckCountries(searchInput.value, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
             }
-        });
-
-        // check if input value is valid country name
-        if(searchInput.value) {
+        } else {
+            // check if input value is valid country name
             await fetchAndCheckCountries(searchInput.value, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
+
+            // check if there are no error messages
+            const errorMessageSpans = document.querySelectorAll('.required-span');
+            if (errorMessageSpans.length === 0) {
+                valid = true;
+            }
         }
-    } else {
-        // check if input value is valid country name
-        await fetchAndCheckCountries(searchInput.value, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
-
-        // check if there are no error messages
-        const errorMessageSpans = document.querySelectorAll('.required-span');
-        if (errorMessageSpans.length === 0) {
-            valid = true;
-        }
-    }
-    
-    // ---------------------- END OF FORM VALIDATION ----------------------
-
-    // ticket object
-    const ticket = {};
-
-    if(valid) {
-        ticket.country = countryDetails.textContent;
-        ticket.city = cityDetails.textContent;
-        ticket.departure = departureDetails.textContent;
-        ticket.return = returnDetails.textContent;
-        ticket.travelers = travelersDetails.textContent;
-        ticket.total = totalDetails.textContent;
-        console.log(ticket);
-
-        // save ticket to Firestore
-        await saveTicketToFirestore(ticket);
-
-        // reset
-        bookingForm.reset();
-
-        const details = [countryDetails, cityDetails, departureDetails, returnDetails, travelersDetails];
-        details.forEach(detail => {
-            detail.textContent = '';
-        });
         
-        updateTotal(countryDetails, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
+        // ---------------------- END OF FORM VALIDATION ----------------------
 
-        // display toast
-        displayToast();
+        // ticket object
+        const ticket = {};
+
+        if(valid) {
+            ticket.country = countryDetails.textContent;
+            ticket.city = cityDetails.textContent;
+            ticket.departure = departureDetails.textContent;
+            ticket.return = returnDetails.textContent;
+            ticket.travelers = travelersDetails.textContent;
+            ticket.total = totalDetails.textContent;
+            console.log(ticket);
+
+            // save ticket to Firestore
+            await saveTicketToFirestore(ticket);
+
+            // reset
+            bookingForm.reset();
+
+            const details = [countryDetails, cityDetails, departureDetails, returnDetails, travelersDetails];
+            details.forEach(detail => {
+                detail.textContent = '';
+            });
+            
+            updateTotal(countryDetails, cityDetails, departureDetails, returnDetails, travelersInput, totalDetails);
+
+            // display toast
+            displayToast();
+        }
+    } catch (error) {
+        alert(`Couldn't book trip, try again later ` + error);
     }
 });
