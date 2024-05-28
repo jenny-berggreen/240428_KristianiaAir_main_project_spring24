@@ -18,6 +18,9 @@ This project is a website for a fictive airline where the user can make an accou
 ## Environment variables
 * Sensitive information, such as the Firebase API key, is obfuscated in the source code to hide it from public eyes.
 
+## Other
+* You might get directed to a "Dangerous website" page when opening the netlify link. In Chrome, click on "details", and "Go to this unsecured website". I suspect that it has to do with the site asking for email and password at log in. 
+
 https://kristianiaair-main-project-spring24.netlify.app 
 
 
